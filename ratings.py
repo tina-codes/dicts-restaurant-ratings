@@ -2,22 +2,25 @@
 
 
 # put your code here
+restaurants = {}
 
 def restaurant_ratings(input_file):
-
-    # sorted(animals.items())
-    restaurants = {}
-    # words = line.rstrip().split()
+    
     for line in sorted(input_file):
-        
-        restaurant_rating = line.rstrip().split(":")
-        restaurant, rating = restaurant_rating
-        restaurants[restaurant] = rating
-        print(f"{restaurant} is rated at {rating}.") 
+      restaurant_rating = line.rstrip().split(":")
+      restaurant, rating = restaurant_rating
+      restaurants[restaurant] = rating
+      print(f"{restaurant} is rated at {rating}.") 
 
-    #for restaurant in sorted(restaurants.items()):
-        #print(f"{restaurant} is rated at {restaurants[restaurant]}.")   
+def add_restaurant():
+    new_restaurant = input("Please enter a restaurant name: ")
+    new_score = input(f"Please rate {new_restaurant}: ")
+    restaurants[new_restaurant] = new_score
+    restaurant_ratings(input_file)
 
+    for restaurant, rating in sorted(restaurants.items()):
+      print(f"{restaurant} is rated at {rating}.")
 
 with open("scores.txt") as input_file:
     restaurant_ratings(input_file)
+    add_restaurant()
