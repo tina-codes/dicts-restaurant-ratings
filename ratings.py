@@ -1,6 +1,4 @@
 """Restaurant rating lister."""
-
-
 # put your code here
 restaurants = {}
 
@@ -16,7 +14,6 @@ def add_restaurant():
     new_restaurant = input("Please enter a restaurant name: ")
     new_score = input(f"Please rate {new_restaurant}: ")
     restaurants[new_restaurant] = new_score
-    restaurant_ratings(input_file)
 
     for restaurant, rating in sorted(restaurants.items()):
       print(f"{restaurant} is rated at {rating}.")
